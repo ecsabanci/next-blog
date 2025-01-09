@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { formatDate } from '../utils/date';
-import type { PostData } from '../utils/markdown';
+import { formatDate } from '@/utils/date';
+import type { PostData } from '@/utils/markdown';
 
 interface PostCardProps {
   post: PostData;

@@ -1,6 +1,6 @@
-import { getAllPosts } from '../utils/markdown';
-import { PostCard } from '../components/PostCard';
-import { Container } from '../components/Container';
+import { getAllPosts } from '@/utils/markdown';
+import { PostCard } from '@/components/PostCard';
+import { Container } from '@/components/Container';
 
 export default function Home() {
   const posts = getAllPosts();

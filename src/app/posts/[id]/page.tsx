@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { getPostWithHtml, getAllPostIds } from '../../../utils/markdown';
-import { formatDate } from '../../../utils/date';
-import { Container } from '../../../components/Container';
+import { getPostWithHtml, getAllPostIds } from '@/utils/markdown';
+import { formatDate } from '@/utils/date';
+import { Container } from '@/components/Container';
 import { IoArrowBack } from 'react-icons/io5';
 
 export async function generateStaticParams() {
@@ -15,7 +15,7 @@ interface PostProps {
   };
 }
 
-export default async function Post({ params }: PostProps) {
+export default async function PostPage({ params }: PostProps) {
   const { id } = await Promise.resolve(params);
   const post = await getPostWithHtml(id);
 
@@ -36,9 +36,9 @@ export default async function Post({ params }: PostProps) {
             <time className="text-sm text-slate-500 dark:text-gray-400">{formatDate(post.date)}</time>
           </header>
 
-          <div 
+          <div
             className="prose prose-slate dark:prose-invert prose-lg max-w-none"
-            dangerouslySetInnerHTML={{ __html: post.contentHtml || '' }} 
+            dangerouslySetInnerHTML={{ __html: post.contentHtml || '' }}
           />
         </article>
       </Container>
