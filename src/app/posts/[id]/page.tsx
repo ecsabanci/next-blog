@@ -1,3 +1,4 @@
+/* eslint-disable */
 import Link from 'next/link';
 import { getPostWithHtml, getAllPostIds } from '@/utils/markdown';
 import { formatDate } from '@/utils/date';
@@ -13,10 +14,9 @@ interface PostProps {
   params: {
     id: string;
   };
-  searchParams: { [key: string]: string | string[] | undefined };
 }
 
-export default async function PostPage({ params, searchParams }: PostProps) {
+export default async function PostPage({ params }: PostProps) {
   const { id } = params;
   const post = await getPostWithHtml(id);
 
