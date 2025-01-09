@@ -13,10 +13,11 @@ interface PostProps {
   params: {
     id: string;
   };
+  searchParams: { [key: string]: string | string[] | undefined };
 }
 
-export default async function PostPage({ params }: PostProps) {
-  const { id } = await Promise.resolve(params);
+export default async function PostPage({ params, searchParams }: PostProps) {
+  const { id } = params;
   const post = await getPostWithHtml(id);
 
   return (
