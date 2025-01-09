@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { NavMenu } from './NavMenu';
 import { Container } from './Container';
 
-export function Header() {
+const Header = () => {
   return (
     <header className="py-8">
       <Container>
@@ -17,4 +17,6 @@ export function Header() {
       </Container>
     </header>
   );
-} 
+};
+
+export { Header }; 
