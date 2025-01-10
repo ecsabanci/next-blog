@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { getPostWithHtml, getAllPostIds } from '@/utils/markdown';
-import { formatDate } from '@/utils/date';
 import { Container } from '@/components/Container';
 import { IoArrowBack } from 'react-icons/io5';
 
