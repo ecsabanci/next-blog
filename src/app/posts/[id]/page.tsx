@@ -1,24 +1,27 @@
-/* eslint-disable */
 import Link from 'next/link';
 import { getPostWithHtml, getAllPostIds } from '@/utils/markdown';
 import { formatDate } from '@/utils/date';
 import { Container } from '@/components/Container';
 import { IoArrowBack } from 'react-icons/io5';
 
+// Ensures paths are returned in the correct structure
 export async function generateStaticParams() {
   const paths = getAllPostIds();
-  return paths;
+  // Return a simpler format: array of objects with just the id
+  return paths.map(path => ({
+    id: path.params.id
+  }));
 }
 
-interface PostProps {
-  params: {
-    id: string;
-  };
-}
+type Params = Promise<{ id: string }>
+// Main page component
+export default async function PostPage(props: { params: Params }) {
+  const params = await props.params;
+  if (!params?.id) {
+    throw new Error('Post ID is required.');
+  }
 
-export default async function PostPage({ params }: PostProps) {
-  const { id } = params;
-  const post = await getPostWithHtml(id);
+  const post = await getPostWithHtml(params.id);
 
   return (
     <main>
@@ -33,8 +36,12 @@ export default async function PostPage({ params }: PostProps) {
 
         <article className="bg-white/50 backdrop-blur-sm dark:bg-gray-800/50 rounded-lg shadow-sm p-8">
           <header className="mb-8">
-            <h1 className="text-4xl font-bold mb-4 text-slate-900 dark:text-white">{post.title}</h1>
-            <time className="text-sm text-slate-500 dark:text-gray-400">{formatDate(post.date)}</time>
+            <h1 className="text-4xl font-bold mb-4 text-slate-900 dark:text-white">
+              {post.title}
+            </h1>
+            <time className="text-sm text-slate-500 dark:text-gray-400">
+              {formatDate(post.date)}
+            </time>
           </header>
 
           <div
@@ -45,4 +52,4 @@ export default async function PostPage({ params }: PostProps) {
       </Container>
     </main>
   );
-} 
+}
