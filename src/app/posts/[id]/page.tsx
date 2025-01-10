@@ -39,9 +39,6 @@ export default async function PostPage(props: { params: Params }) {
             <h1 className="text-4xl font-bold mb-4 text-slate-900 dark:text-white">
               {post.title}
             </h1>
-            <time className="text-sm text-slate-500 dark:text-gray-400">
-              {formatDate(post.date)}
-            </time>
           </header>
 
           <div

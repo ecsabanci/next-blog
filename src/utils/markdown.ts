@@ -13,6 +13,7 @@ export interface PostData {
   excerpt: string;
   content: string;
   contentHtml?: string;
+  category?: string;
 }
 
 export function getAllPostIds() {
