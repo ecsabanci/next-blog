@@ -6,9 +6,9 @@ import { IoHomeOutline, IoPersonOutline, IoBriefcaseOutline } from 'react-icons/
 
 export function NavMenu() {
   const menuItems = [
-    { href: '/', label: 'home', icon: <IoHomeOutline className="w-6 h-6" /> },
-    { href: '/who', label: 'who', icon: <IoPersonOutline className="w-6 h-6" /> },
-    { href: '/work', label: 'work', icon: <IoBriefcaseOutline className="w-6 h-6" /> },
+    { href: '/', label: 'home', icon: <IoHomeOutline className="w-4 h-4" /> },
+    { href: '/who', label: 'who', icon: <IoPersonOutline className="w-4 h-4" /> },
+    { href: '/work', label: 'work', icon: <IoBriefcaseOutline className="w-4 h-4" /> },
   ];
 
   return (
@@ -28,8 +28,8 @@ export function NavMenu() {
       </nav>
 
       {/* Mobile Navigation */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-gray-800/90 dark:bg-gray-950/90 backdrop-blur-lg z-50">
-        <div className="flex items-center justify-between max-w-4xl mx-auto px-12 py-3">
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-gray-800/90 dark:bg-gray-950/90 backdrop-blur-lg z-50 rounded-t-xl">
+        <div className="flex items-center justify-between max-w-4xl mx-auto px-12 py-2">
           {menuItems.map((item) => (
             <Link
               key={item.label}
