@@ -1,15 +1,25 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { ThemeToggle } from './ThemeToggle';
 import { IoHomeOutline, IoPersonOutline, IoBriefcaseOutline } from 'react-icons/io5';
 
 export function NavMenu() {
+  const pathname = usePathname();
+
   const menuItems = [
     { href: '/', label: 'home', icon: <IoHomeOutline className="w-4 h-4" /> },
     { href: '/who', label: 'who', icon: <IoPersonOutline className="w-4 h-4" /> },
     { href: '/work', label: 'work', icon: <IoBriefcaseOutline className="w-4 h-4" /> },
   ];
+
+  const isActive = (href: string) => {
+    if (href === '/') {
+      return pathname === '/' || pathname?.startsWith('/posts/');
+    }
+    return pathname === href;
+  };
 
   return (
     <>
@@ -19,7 +29,10 @@ export function NavMenu() {
           <Link
             key={item.label}
             href={item.href}
-            className="text-lg text-slate-600 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+            className={`text-lg transition-colors ${isActive(item.href)
+              ? 'text-emerald-600 dark:text-emerald-400 font-medium'
+              : 'text-slate-600 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400'
+              }`}
           >
             {item.label}
           </Link>
@@ -34,7 +47,10 @@ export function NavMenu() {
             <Link
               key={item.label}
               href={item.href}
-              className="text-gray-400 hover:text-emerald-400 transition-colors"
+              className={`transition-colors ${isActive(item.href)
+                ? 'text-emerald-400'
+                : 'text-gray-400 hover:text-emerald-400'
+                }`}
               aria-label={item.label}
             >
               {item.icon}
