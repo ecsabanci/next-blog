@@ -23,13 +23,13 @@ export function ThemeToggle({ className = '' }: ThemeToggleProps) {
   return (
     <button
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      className={`p-2 rounded-lg hover:bg-emerald-100 dark:hover:bg-emerald-900/30 transition-colors ${className}`}
+      className={`p-2 rounded-lg hover:bg-emerald-100 dark:hover:bg-emerald-900/30 ml-auto transition-colors ${className}`}
       aria-label="Tema değiştir"
     >
       {theme === 'dark' ? (
-        <IoSunnyOutline className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+        <IoSunnyOutline className="w-5 h-5 text-gray-500" />
       ) : (
-        <IoMoonOutline className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+        <IoMoonOutline className="w-5 h-5 text-gray-500" />
       )}
     </button>
   );

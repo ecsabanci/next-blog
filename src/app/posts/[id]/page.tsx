@@ -3,6 +3,7 @@ import { getPostWithHtml, getAllPostIds } from '@/utils/markdown';
 import { Container } from '@/components/Container';
 import { IoArrowBack } from 'react-icons/io5';
 import { formatDate } from '@/utils/date';
+import Claps from "@/components/claps";
 
 // Ensures paths are returned in the correct structure
 export async function generateStaticParams() {
@@ -66,6 +67,7 @@ export default async function PostPage(props: { params: Params }) {
           />
         </article>
       </Container>
+      <Claps key={params.id} />
     </main>
   );
 }
