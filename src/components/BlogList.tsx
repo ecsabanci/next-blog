@@ -39,7 +39,7 @@ export function BlogList({ posts }: BlogListProps) {
 
     return (
         <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 xxl:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
                 {currentPosts.map((post) => (
                     <PostCard key={post.id} post={post} />
                 ))}

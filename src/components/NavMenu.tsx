@@ -3,14 +3,14 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ThemeToggle } from './ThemeToggle';
-import { IoHomeOutline, IoPersonOutline, IoBriefcaseOutline } from 'react-icons/io5';
+import { IoHomeOutline, IoBookmarkOutline, IoBriefcaseOutline } from 'react-icons/io5';
 
 export function NavMenu() {
   const pathname = usePathname();
 
   const menuItems = [
     { href: '/', label: 'home', icon: <IoHomeOutline className="w-4 h-4" /> },
-    { href: '/who', label: 'who', icon: <IoPersonOutline className="w-4 h-4" /> },
+    { href: '/bookmarks', label: 'bookmarks', icon: <IoBookmarkOutline className="w-4 h-4" /> },
     { href: '/work', label: 'work', icon: <IoBriefcaseOutline className="w-4 h-4" /> },
   ];
 
