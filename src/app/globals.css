@@ -4,6 +4,10 @@
 
 @import "@upstash/claps/style.css";
 
+.claps-share-content {
+  color: #000;
+}
+
 :root {
   --background: #f8fafc;
   --foreground: #1e293b;

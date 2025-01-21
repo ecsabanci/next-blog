@@ -1,3 +1,5 @@
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -7,8 +9,23 @@ import { Header } from "@/components/Header";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "My Blog",
+  title: "Melisa Çevik",
   description: "My personal blog built with Next.js",
+  authors: [{ name: "Melisa Çevik" }],
+  keywords: ["blog", "technology", "web development", "Next.js", "React", "software engineering"],
+  creator: "Melisa Çevik",
+  openGraph: {
+    title: "Melisa Çevik",
+    description: "My personal blog built with Next.js",
+    type: "website",
+    locale: "tr_TR",
+    siteName: "Melisa Çevik",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  metadataBase: new URL("https://www.melisacevik.com/"),
 };
 
 export default function RootLayout({
@@ -25,6 +42,8 @@ export default function RootLayout({
             {children}
           </div>
         </ThemeProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
