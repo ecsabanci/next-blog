@@ -91,6 +91,16 @@ export default {
           },
         },
       }),
+      keyframes: {
+        wiggle: {
+          '0%': { transform: 'translateX(0)' },
+          '50%': { transform: 'translateX(10px)' },
+          '100%': { transform: 'translateX(0)' }
+        }
+      },
+      animation: {
+        wiggle: 'wiggle 1s ease-in-out'
+      }
     },
   },
   plugins: [

@@ -1,7 +1,6 @@
 import Link from 'next/link';
-import { formatDate } from '@/utils/date';
 import type { PostData } from '@/utils/markdown';
-import { CalendarIcon, ClockIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
+import { ClockIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 
 interface PostCardProps {
   post: PostData;
@@ -38,11 +37,6 @@ export function PostCard({ post }: PostCardProps) {
       {/* Alt bilgiler */}
       <div className="flex items-center justify-between mt-3 pt-3 sm:mt-4 sm:pt-4 border-t border-gray-100 dark:border-gray-700">
         <div className="flex items-center space-x-3 sm:space-x-4 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
-          {/* Tarih */}
-          <div className="flex items-center">
-            <CalendarIcon className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
-            <time dateTime={post.date}>{formatDate(post.date)}</time>
-          </div>
 
           {/* Okuma süresi */}
           <div className="flex items-center">

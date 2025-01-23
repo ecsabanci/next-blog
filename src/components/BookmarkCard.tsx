@@ -1,5 +1,4 @@
-import { CalendarIcon, LinkIcon } from '@heroicons/react/24/outline';
-import { formatDate } from '@/utils/date';
+import { LinkIcon } from '@heroicons/react/24/outline';
 import type { BookmarkData } from '@/utils/bookmarks';
 
 interface BookmarkCardProps {
@@ -40,12 +39,6 @@ export function BookmarkCard({ bookmark }: BookmarkCardProps) {
             <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 flex-grow">
                 {bookmark.description}
             </p>
-
-            {/* Date */}
-            <div className="flex items-center text-xs sm:text-sm text-gray-600 dark:text-gray-400">
-                <CalendarIcon className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
-                <time dateTime={bookmark.date}>{formatDate(bookmark.date)}</time>
-            </div>
         </article>
     );
 } 

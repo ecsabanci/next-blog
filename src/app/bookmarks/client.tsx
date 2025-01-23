@@ -54,7 +54,7 @@ export function ClientBookmarks({ initialBookmarks, allTags }: ClientBookmarksPr
                         ))}
                     </div>
                 </div>
-                <div className="absolute right-0 top-0 h-full w-12 bg-gradient-to-l from-gray-900 to-transparent pointer-events-none sm:hidden" />
+                <div className="absolute right-0 top-0 h-full w-12 bg-gradient-to-l from-slate-200/50 to-transparent dark:from-gray-900 pointer-events-none sm:hidden" />
             </div>
 
             {/* Bookmarks grid */}
