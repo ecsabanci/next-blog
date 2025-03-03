@@ -2,7 +2,7 @@
 title: "Makine Öğrenmesi Part-3"
 date: "2024-03-30"
 excerpt: "Yanlılık - Varyans Değiş Tokuşu (Bias-Variance Tradeoff)"
-category: "Machine Learning"
+category: "Machine Learning, Data Science"
 ---
 
 🧡 Merhaba! [Part-2 yazımda](/posts/machine-learning-part2) makine öğrenmesi türlerine değinmiştim. Bu yazıda Yanlılık - Varyans Değiş Tokuşu (Bias-Variance Tradeoff)'u ele alacağım.

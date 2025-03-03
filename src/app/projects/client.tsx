@@ -5,22 +5,22 @@ import { PostCard } from '@/components/PostCard';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import type { ContentData } from '@/utils/markdown';
 
-interface BlogListProps {
-    posts: ContentData[];
+interface ClientProjectsProps {
+    projects: ContentData[];
 }
 
 const POSTS_PER_PAGE = 6;
 
-export function BlogList({ posts }: BlogListProps) {
+export function ClientProjects({ projects }: ClientProjectsProps) {
     const [currentPage, setCurrentPage] = useState(1);
 
     // Toplam sayfa sayısını hesapla
-    const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
+    const totalPages = Math.ceil(projects.length / POSTS_PER_PAGE);
 
     // Mevcut sayfada gösterilecek yazıları hesapla
     const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
     const endIndex = startIndex + POSTS_PER_PAGE;
-    const currentPosts = posts.slice(startIndex, endIndex);
+    const currentProjects = projects.slice(startIndex, endIndex);
 
     // Sayfa değiştirme fonksiyonları
     const goToNextPage = () => {
@@ -39,9 +39,9 @@ export function BlogList({ posts }: BlogListProps) {
 
     return (
         <>
-            <div className="mb-6 sm:mb-8">
-                {currentPosts.map((post) => (
-                    <PostCard key={post.id} post={post} type="posts" />
+            <div className="py-6 sm:py-12">
+                {currentProjects.map((project) => (
+                    <PostCard key={project.id} post={project} type="projects" />
                 ))}
             </div>
 

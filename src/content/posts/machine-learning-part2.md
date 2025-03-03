@@ -2,7 +2,7 @@
 title: "Makine Öğrenmesi Part-2"
 date: "2024-03-30"
 excerpt: "Makine öğrenmesi öğrenme türleri"
-category: "Machine Learning"
+category: "Machine Learning, Data Science"
 ---
 
 Merhaba! Part-1 yazımda, makine öğrenmesinin tanımını yapıp, veri analizi ve modelleme süreçlerinde ne kadar önemli olduğunu vurgulamıştık. Bu yazımda *öğrenme türlerini* ele alacağım. 🚀

@@ -9,12 +9,17 @@ export function NavMenu() {
 
   const menuItems = [
     { href: '/', label: 'home' },
+    { href: '/projects', label: 'projects' },
     { href: '/bookmarks', label: 'bookmarks' },
   ];
 
   const isActive = (href: string) => {
     if (href === '/') {
-      return pathname === '/' || pathname?.startsWith('/posts/');
+      return pathname === '/'
+    } else if (href === '/projects') {
+      return pathname === '/projects' || pathname?.startsWith('/projects/');
+    } else if (href === '/bookmarks') {
+      return pathname === '/bookmarks' || pathname?.startsWith('/bookmarks/');
     }
     return pathname === href;
   };

@@ -2,7 +2,7 @@
 title: "Makine Öğrenmesi Part-1"
 date: "2024-03-24"
 excerpt: "Data Science, Machine Learning, Artificial Intelligence meraklılarına Machine Learning serisi"
-category: "Machine Learning"
+category: "Machine Learning, Data Science"
 ---
 
 Merhaba. Data Science, Machine Learning, Artificial Intelligence meraklılarına Medium' da Machine Learning serisi başlatıyorum. Why not? 🥲 Part-1 yazım, makine öğrenmesine ilk temasımız olup giriş seviyesinde başlayacaktır.

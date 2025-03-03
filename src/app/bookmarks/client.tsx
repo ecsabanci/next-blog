@@ -29,8 +29,8 @@ export function ClientBookmarks({ initialBookmarks, allTags }: ClientBookmarksPr
 
             {/* Tags filter */}
             <div className="relative mb-8">
-                <div className="overflow-x-auto scrollbar-hide">
-                    <div className="flex gap-2 sm:px-0 min-w-max pb-2">
+                <div className="overflow-x-auto sm:overflow-visible">
+                    <div className="flex flex-nowrap sm:flex-wrap gap-2 min-w-max sm:min-w-0 pb-2">
                         <button
                             onClick={() => setSelectedTag(null)}
                             className={`px-3 py-1.5 text-xs sm:text-sm font-medium rounded-full transition-colors ${selectedTag === null
@@ -58,7 +58,7 @@ export function ClientBookmarks({ initialBookmarks, allTags }: ClientBookmarksPr
             </div>
 
             {/* Bookmarks grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 xxl:grid-cols-3 gap-4 sm:gap-6">
+            <div className="flex flex-col gap-4 sm:gap-6">
                 {filteredBookmarks.map((bookmark) => (
                     <BookmarkCard key={bookmark.id} bookmark={bookmark} />
                 ))}

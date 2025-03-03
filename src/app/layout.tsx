@@ -1,12 +1,16 @@
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Funnel_Display } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./providers";
 import { Header } from "@/components/Header";
 
-const inter = Inter({ subsets: ["latin"] });
+const delius = Funnel_Display({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: "Melisa Çevik",
@@ -35,15 +39,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="tr" suppressHydrationWarning>
-      <body className={inter.className} suppressHydrationWarning>
-        <ThemeProvider>
-          <div className="min-h-screen bg-slate-300/50 dark:bg-gray-900 text-slate-900 dark:text-white pb-24 md:pb-8">
-            <Header />
-            {children}
-          </div>
-        </ThemeProvider>
-        <Analytics />
-        <SpeedInsights />
+      <body className={`${delius.className} bg-slate-300/50 dark:bg-gray-900 text-slate-900 dark:text-white`} suppressHydrationWarning>
+        <main className="lg:max-w-2xl md:max-w-full mx-4 flex flex-col md:flex-row mt-2 sm:mt-8 lg:mx-auto">
+          <ThemeProvider>
+            <div className="min-h-screen pb-24 md:pb-8 w-full">
+              <Header />
+              {children}
+            </div>
+          </ThemeProvider>
+          <Analytics />
+          <SpeedInsights />
+        </main>
       </body>
     </html>
   );

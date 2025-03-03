@@ -1,58 +1,36 @@
 import Link from 'next/link';
-import type { PostData } from '@/utils/markdown';
-import { ClockIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
+import type { ContentData, ContentType } from '@/utils/markdown';
 
 interface PostCardProps {
-  post: PostData;
+  post: ContentData;
+  type: ContentType;
 }
 
-export function PostCard({ post }: PostCardProps) {
-  // Okuma süresini tahmin et (ortalama 200 kelime/dakika)
-  const wordCount = post.excerpt?.split(/\s+/).length || 0;
-  const readingTime = Math.max(1, Math.ceil(wordCount / 200));
-
+export function PostCard({ post, type }: PostCardProps) {
   return (
-    <article className="group relative flex flex-col h-full p-4 sm:p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all duration-300">
-      {/* Kategori badge - eğer varsa */}
-      {post.category && (
-        <div className="absolute top-3 right-3 sm:top-4 sm:right-4">
-          <span className="px-2 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/30 rounded-full">
-            {post.category}
+    <article className="group flex flex-col justify-between pb-8 mb-8 dark:border-gray-800 rounded-sm p-4 transition-colors duration-300 border-dashed border-2 border-gray-300 hover:border-gray-400 dark:hover:border-gray-600">
+
+      <div>
+        {/* Title */}
+        <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3 transition-colors">
+          <Link href={`/${type}/${post.id}`}>
+            {post.title}
+          </Link>
+        </h2>
+
+        {/* Excerpt */}
+        <p className="text-gray-600 dark:text-gray-500 line-clamp-2 text-sm">
+          {post.excerpt}
+        </p>
+      </div>
+
+      {/* Category */}
+      <div className="flex gap-1">
+        {post.category && post.category.split(',').map((category) => (
+          <span key={category} className="text-tiny text-gray-300 mt-4 bg-gray-700 px-2 py-1 rounded-md dark:bg-indigo-300/50 dark:text-gray-100">
+            {category}
           </span>
-        </div>
-      )}
-
-      {/* Başlık */}
-      <h2 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 sm:mb-3 text-gray-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-        <Link href={`/posts/${post.id}`} className="block">
-          {post.title}
-        </Link>
-      </h2>
-
-      {/* Özet */}
-      <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 line-clamp-2 flex-grow">
-        {post.excerpt}
-      </p>
-
-      {/* Alt bilgiler */}
-      <div className="flex items-center justify-between mt-3 pt-3 sm:mt-4 sm:pt-4 border-t border-gray-100 dark:border-gray-700">
-        <div className="flex items-center space-x-3 sm:space-x-4 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
-
-          {/* Okuma süresi */}
-          <div className="flex items-center">
-            <ClockIcon className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
-            <span>{readingTime} dk okuma</span>
-          </div>
-        </div>
-
-        {/* Devamını oku linki */}
-        <Link
-          href={`/posts/${post.id}`}
-          className="inline-flex items-center text-xs sm:text-sm font-medium text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors"
-        >
-          Devamını oku
-          <ArrowRightIcon className="w-3 h-3 sm:w-4 sm:h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-        </Link>
+        ))}
       </div>
     </article>
   );

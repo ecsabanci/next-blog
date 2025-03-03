@@ -4,9 +4,9 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 
-const postsDirectory = path.join(process.cwd(), 'src/content/posts');
+const contentDirectory = path.join(process.cwd(), 'src/content');
 
-export interface PostData {
+export interface ContentData {
   id: string;
   title: string;
   date: string;
@@ -14,10 +14,18 @@ export interface PostData {
   content: string;
   contentHtml?: string;
   category?: string;
+  technologies?: string[];
+  githubUrl?: string;
+  demoUrl?: string;
+  image?: string;
 }
 
-export function getAllPostIds() {
-  const fileNames = fs.readdirSync(postsDirectory);
+export type ContentType = 'posts' | 'projects';
+
+export function getAllContentIds(type: ContentType) {
+  const typeDirectory = path.join(contentDirectory, type);
+  const fileNames = fs.readdirSync(typeDirectory);
+  
   return fileNames.map((fileName) => {
     return {
       params: {
@@ -27,8 +35,8 @@ export function getAllPostIds() {
   });
 }
 
-export function getPostData(id: string): PostData {
-  const fullPath = path.join(postsDirectory, `${id}.md`);
+export function getContentData(type: ContentType, id: string): ContentData {
+  const fullPath = path.join(contentDirectory, type, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
 
   const matterResult = matter(fileContents);
@@ -39,11 +47,16 @@ export function getPostData(id: string): PostData {
     date: matterResult.data.date,
     excerpt: matterResult.data.excerpt || '',
     content: matterResult.content,
+    category: matterResult.data.category || '',
+    technologies: matterResult.data.technologies || [],
+    githubUrl: matterResult.data.githubUrl || '',
+    demoUrl: matterResult.data.demoUrl || '',
+    image: matterResult.data.image || '',
   };
 }
 
-export async function getPostWithHtml(id: string): Promise<PostData> {
-  const fullPath = path.join(postsDirectory, `${id}.md`);
+export async function getContentWithHtml(type: ContentType, id: string): Promise<ContentData> {
+  const fullPath = path.join(contentDirectory, type, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
 
   const matterResult = matter(fileContents);
@@ -60,21 +73,34 @@ export async function getPostWithHtml(id: string): Promise<PostData> {
     excerpt: matterResult.data.excerpt || '',
     content: matterResult.content,
     contentHtml,
+    category: matterResult.data.category || '',
+    technologies: matterResult.data.technologies || [],
+    githubUrl: matterResult.data.githubUrl || '',
+    demoUrl: matterResult.data.demoUrl || '',
+    image: matterResult.data.image || '',
   };
 }
 
-export function getAllPosts(): PostData[] {
-  const fileNames = fs.readdirSync(postsDirectory);
-  const allPostsData = fileNames.map((fileName) => {
+export function getAllContent(type: ContentType): ContentData[] {
+  const typeDirectory = path.join(contentDirectory, type);
+  const fileNames = fs.readdirSync(typeDirectory);
+  
+  const allContent = fileNames.map((fileName) => {
     const id = fileName.replace(/\.md$/, '');
-    return getPostData(id);
+    return getContentData(type, id);
   });
 
-  return allPostsData.sort((a, b) => {
+  return allContent.sort((a, b) => {
     if (a.date < b.date) {
       return 1;
     } else {
       return -1;
     }
   });
+}
+
+// Helper function to check if a directory exists
+export function contentTypeExists(type: ContentType): boolean {
+  const typeDirectory = path.join(contentDirectory, type);
+  return fs.existsSync(typeDirectory);
 }
