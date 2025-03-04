@@ -8,7 +8,7 @@ export function NavMenu() {
   const pathname = usePathname();
 
   const menuItems = [
-    { href: '/', label: 'home' },
+    { href: '/about', label: 'about' },
     { href: '/projects', label: 'projects' },
     { href: '/bookmarks', label: 'bookmarks' },
   ];

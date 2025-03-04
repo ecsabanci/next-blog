@@ -14,7 +14,7 @@ export interface ContentData {
   content: string;
   contentHtml?: string;
   category?: string;
-  technologies?: string[];
+  technologies?: [];
   githubUrl?: string;
   demoUrl?: string;
   image?: string;

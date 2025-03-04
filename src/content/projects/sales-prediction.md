@@ -2,6 +2,10 @@
 title: "Makine Öğrenmesi ile Satış Tahmini Projesi"
 date: "2024-03-20"
 excerpt: "Reklam harcamalarına dayalı satış tahmini yapan makine öğrenmesi modeli"
+technologies: ["Python", "Pandas", "Scikit-Learn", "Jupyter Notebook", "Linear Regression", "Multiple Linear Regression"]
+githubUrl: "https://github.com/melisacevik/Machine-Learning/blob/master/linear_regression.py"
+demoUrl: ""
+image: ""
 ---
 
 Bu projede, farklı reklam kanallarında (TV, radyo, gazete) yapılan harcamaların satışlar üzerindeki etkisini analiz eden ve gelecekteki satışları tahmin eden bir makine öğrenmesi modeli geliştirilmiştir.

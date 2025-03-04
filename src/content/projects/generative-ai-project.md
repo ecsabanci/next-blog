@@ -1,7 +1,11 @@
 ---
-title: "Üretken Yapay Zeka (Generative AI) Projesi"
-date: "2024-03-20"
+title: "API ile Metin, Görsel ve Ses Üretimi"
+date: "2025-03-04"
 excerpt: "Metin, görsel ve ses üretimi yapan kapsamlı bir GenerativeAI uygulaması"
+technologies: ["Python", "Streamlit", "OpenAI", "StabilityAI", "AssemblyAI"]
+githubUrl: "https://github.com/melisacevik/Generative-AI/tree/master/module2"
+demoUrl: ""
+image: ""
 ---
 
 Bu projede, yapay zekanın üretken yeteneklerini kullanarak metin, görsel ve ses üretimi yapan kapsamlı bir uygulama geliştirilmiştir. Proje, modern yapay zeka teknolojilerinin yaratıcı potansiyelini göstermektedir.

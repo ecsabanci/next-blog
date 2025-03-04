@@ -2,6 +2,7 @@
 title: "FLO Müşteri Segmentasyonu Projesi"
 date: "2024-03-20"
 excerpt: "Denetimsiz öğrenme ile müşteri segmentasyonu ve pazarlama stratejileri"
+technologies: ["Python", "Pandas", "Seaborn", "Matplotlib", "Jupyter Notebook", "Data Visualization"]
 ---
 
 Bu projede, FLO'nun müşterilerini segmentlere ayırarak her segment için özel pazarlama stratejileri geliştirmeyi amaçlayan bir denetimsiz öğrenme çalışması gerçekleştirilmiştir.

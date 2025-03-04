@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type { ContentData, ContentType } from '@/utils/markdown';
-
+import { TagChip } from './TagChip';
 interface PostCardProps {
   post: ContentData;
   type: ContentType;
@@ -24,12 +24,20 @@ export function PostCard({ post, type }: PostCardProps) {
         </p>
       </div>
 
-      {/* Category */}
-      <div className="flex gap-1">
+      {/* Category or Technologies */}
+      <div className="flex gap-1 mt-4">
         {post.category && post.category.split(',').map((category) => (
-          <span key={category} className="text-tiny text-gray-300 mt-4 bg-gray-700 px-2 py-1 rounded-md dark:bg-indigo-300/50 dark:text-gray-100">
-            {category}
-          </span>
+          <TagChip
+            key={category}
+            tag={category}
+          />
+        ))}
+
+        {post.technologies && post.technologies.map((technology) => (
+          <TagChip
+            key={technology}
+            tag={technology}
+          />
         ))}
       </div>
     </article>

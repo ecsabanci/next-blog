@@ -2,6 +2,7 @@
 title: "New York Metro Sistemi (MTA) Veri Analizi Projesi"
 date: "2024-03-20"
 excerpt: "NYC MTA metro verilerinin kapsamlı analizi ve görselleştirmesi"
+technologies: ["Python", "Pandas", "Seaborn", "Matplotlib", "Jupyter Notebook", "Data Visualization"]
 ---
 
 Bu projede, New York Metrosu'nda (MTA) gerçekleşen bilet işlemleri için detaylı bir veri analizi ve görselleştirme çalışması yapılmıştır. Proje, metro kullanım desenlerini ve yolcu davranışlarını anlamayı amaçlamaktadır.

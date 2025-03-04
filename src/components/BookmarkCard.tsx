@@ -1,4 +1,5 @@
 import { LinkIcon } from '@heroicons/react/24/outline';
+import { TagChip } from './TagChip';
 import type { BookmarkData } from '@/utils/bookmarks';
 
 interface BookmarkCardProps {
@@ -11,12 +12,10 @@ export function BookmarkCard({ bookmark }: BookmarkCardProps) {
             {/* Tags */}
             <div className="flex flex-wrap gap-2 mb-3">
                 {bookmark.tags.map((tag) => (
-                    <span
+                    <TagChip
                         key={tag}
-                        className="px-2 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/30 rounded-full"
-                    >
-                        {tag}
-                    </span>
+                        tag={tag}
+                    />
                 ))}
             </div>
 

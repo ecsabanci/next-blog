@@ -4,6 +4,7 @@ import { Container } from '@/components/Container';
 import { IoArrowBack } from 'react-icons/io5';
 import { formatDate } from '@/utils/date';
 import Claps from "@/components/claps";
+import { TagChip } from '@/components/TagChip';
 import Image from 'next/image';
 
 // Ensures paths are returned in the correct structure
@@ -45,11 +46,12 @@ export default async function ProjectPage(props: { params: Params }) {
                             <time dateTime={project.date}>{formatDate(project.date)}</time>
 
                             {project.technologies && project.technologies.length > 0 && (
-                                <div className="flex flex-wrap gap-2">
+                                <div className="flex flex-wrap gap-2 opacity-50">
                                     {project.technologies.map((tech) => (
-                                        <span key={tech} className="px-2 py-1 bg-slate-100 dark:bg-gray-700 rounded-md">
-                                            {tech}
-                                        </span>
+                                        <TagChip
+                                            key={tech}
+                                            tag={tech}
+                                        />
                                     ))}
                                 </div>
                             )}
